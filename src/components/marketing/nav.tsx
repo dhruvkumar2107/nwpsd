@@ -832,7 +832,7 @@ export function Nav() {
                       exit="exit"
                       className="absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 pt-3"
                     >
-                      <div className="glass rounded-xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)] p-6">
+                      <div className="rounded-xl border border-border bg-white p-6 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)]">
                         {item.id === "services" && <ServicesMegaMenu />}
                         {item.id === "international" && <InternationalMegaMenu />}
                       </div>
@@ -850,7 +850,7 @@ export function Nav() {
                       exit="exit"
                       className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
                     >
-                      <div className="glass rounded-xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)] py-2">
+                      <div className="rounded-xl border border-border bg-white py-2 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)]">
                         <DropdownMenu items={dropdownItems[item.id] || []} />
                       </div>
                     </motion.div>
