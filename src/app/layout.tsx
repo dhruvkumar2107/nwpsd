@@ -1,96 +1,129 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import ScrollToTop from "@/components/marketing/scroll-to-top";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-})
+  variable: "--font-inter",
+  display: "swap",
+});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
   subsets: ["latin"],
-})
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com"
+  ),
   title: {
-    default: "Unitide Educations — Higher-Ed Internationalization Partner",
-    template: "%s | Unitide Educations",
+    default: "Nyay Saathis — Higher Education Advisory",
+    template: "%s | Nyay Saathis — Higher Education Advisory",
   },
   description:
-    "The execution partner for Indian higher-ed internationalization — strategy to signed MoU to accreditation-ready compliance.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
+    "Nyay Saathis is a premium higher-education consulting advisory firm delivering strategic guidance for university admissions, scholarship optimization, and academic career planning across India and abroad.",
+  keywords: [
+    "higher education consulting",
+    "university admissions",
+    "scholarship advisory",
+    "education consulting India",
+    "study abroad",
+    "college admission strategy",
+    "academic career planning",
+    "Nyay Saathis",
+  ],
+  authors: [{ name: "Nyay Saathis Education Advisory" }],
+  creator: "Nyay Saathis Education Advisory",
+  publisher: "Nyay Saathis Education Advisory",
   openGraph: {
-    title: "Unitide Educations",
-    description:
-      "The execution partner for Indian higher-ed internationalization",
     type: "website",
     locale: "en_IN",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com",
+    siteName: "Nyay Saathis — Higher Education Advisory",
+    title: "Nyay Saathis — Higher Education Advisory",
+    description:
+      "Premium higher-education consulting advisory delivering strategic guidance for university admissions, scholarship optimization, and academic career planning.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nyay Saathis — Higher Education Advisory",
+      },
+    ],
   },
-}
+  twitter: {
+    card: "summary_large_image",
+    title: "Nyay Saathis — Higher Education Advisory",
+    description:
+      "Premium higher-education consulting advisory delivering strategic guidance for university admissions, scholarship optimization, and academic career planning.",
+    images: ["/og-image.png"],
+    creator: "@nyaysaathis",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Nyay Saathis Education Advisory",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com",
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com"}/logo.png`,
+  description:
+    "Premium higher-education consulting advisory firm delivering strategic guidance for university admissions, scholarship optimization, and academic career planning.",
+  foundingDate: "2024",
+  sameAs: [
+    "https://twitter.com/nyaysaathis",
+    "https://linkedin.com/company/nyaysaathis",
+    "https://instagram.com/nyaysaathis",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: ["English", "Hindi"],
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Unitide Educations",
-              description:
-                "The execution partner for Indian higher-ed internationalization",
-              url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "info@unitide.in",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="font-sans antialiased bg-background text-foreground">
+        <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.03]" />
         {children}
-        <WhatsAppButton />
+        <ScrollToTop />
       </body>
     </html>
-  )
-}
-
-function WhatsAppButton() {
-  return (
-    <a
-      href="https://wa.me/919999999999?text=Hi%20Unitide%2C%20I%27d%20like%20to%20know%20more"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-colors"
-      aria-label="Chat on WhatsApp"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      </svg>
-    </a>
-  )
+  );
 }

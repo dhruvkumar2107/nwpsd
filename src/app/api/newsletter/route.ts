@@ -4,6 +4,8 @@ import { db } from "@/lib/db"
 
 const NewsletterSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
+  name: z.string().optional(),
+  institution: z.string().optional(),
 })
 
 export async function POST(request: Request) {
@@ -18,17 +20,27 @@ export async function POST(request: Request) {
       )
     }
 
-    const { email } = parsed.data
+    const { email, name, institution } = parsed.data
 
-    const existingLead = await db.lead.findFirst({ where: { email } })
+    const existingSubscriber = await db.subscriber.findUnique({ where: { email } })
 
-    const lead = existingLead
-      ? existingLead
-      : await db.lead.create({
-          data: { name: email.split("@")[0], email, source: "NEWSLETTER" },
-        })
+    let subscriber
+    if (existingSubscriber) {
+      subscriber = await db.subscriber.update({
+        where: { email },
+        data: {
+          name: name ?? existingSubscriber.name,
+          institution: institution ?? existingSubscriber.institution,
+          active: true,
+        },
+      })
+    } else {
+      subscriber = await db.subscriber.create({
+        data: { email, name, institution },
+      })
+    }
 
-    return NextResponse.json({ success: true, leadId: lead.id })
+    return NextResponse.json({ success: true, subscriberId: subscriber.id })
   } catch (error) {
     console.error("[Newsletter API]", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })

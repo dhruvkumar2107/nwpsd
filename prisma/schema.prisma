@@ -7,57 +7,404 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  ADMIN
+  EDITOR
+  CLIENT
+}
+
+enum EngagementStatus {
+  DISCOVERY
+  STRATEGY
+  MOU_DRAFTING
+  REGULATORY_FILING
+  APPROVED
+  LIVE
+}
+
+enum LeadSource {
+  READINESS_SCORE
+  CONTACT
+  NEWSLETTER
+  CONSULTATION
+}
+
+enum PartnerType {
+  UNIVERSITY
+  CORPORATE
+  GOVERNMENT
+}
+
+enum PartnershipType {
+  STUDENT_EXCHANGE
+  FACULTY_EXCHANGE
+  JOINT_PROGRAM
+  RESEARCH
+  DUAL_DEGREE
+}
+
+enum PartnershipStatus {
+  ACTIVE
+  PLANNED
+  COMPLETED
+}
+
+enum ConsultationStatus {
+  PENDING
+  CONTACTED
+  SCHEDULED
+  COMPLETED
+}
+
+enum ContactStatus {
+  NEW
+  READ
+  REPLIED
+}
+
+enum SettingType {
+  STRING
+  JSON
+  BOOLEAN
+}
+
 model User {
   id           String    @id @default(cuid())
   email        String    @unique
   passwordHash String
   name         String
-  role         String    @default("CLIENT") // ADMIN | CLIENT
+  role         Role      @default(CLIENT)
+  avatar       String?
+  bio          String?
+  phone        String?
   createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
   engagements  Engagement[]
+  articles     Article[]
+
+  @@index([email])
+  @@index([role])
 }
 
 model Engagement {
-  id         String   @id @default(cuid())
+  id         String           @id @default(cuid())
   clientId   String
-  client     User     @relation(fields: [clientId], references: [id])
+  client     User             @relation(fields: [clientId], references: [id], onDelete: Cascade)
   title      String
   pillar     String
-  status     String   @default("DISCOVERY") // DISCOVERY | STRATEGY | MOU_DRAFTING | REGULATORY_FILING | APPROVED | LIVE
-  startDate  DateTime @default(now())
+  status     EngagementStatus @default(DISCOVERY)
+  startDate  DateTime         @default(now())
   targetDate DateTime?
   notes      String?
   documents  Document[]
-  createdAt  DateTime @default(now())
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([clientId])
+  @@index([status])
 }
 
 model Document {
-  id           String   @id @default(cuid())
+  id           String     @id @default(cuid())
   engagementId String
-  engagement   Engagement @relation(fields: [engagementId], references: [id])
+  engagement   Engagement @relation(fields: [engagementId], references: [id], onDelete: Cascade)
   name         String
   url          String
-  uploadedAt   DateTime @default(now())
+  uploadedAt   DateTime   @default(now())
   type         String
+
+  @@index([engagementId])
 }
 
 model Lead {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  phone     String?
-  source    String   // READINESS_SCORE | CONTACT | NEWSLETTER
-  payload   String?  // JSON string
-  createdAt DateTime @default(now())
+  id                   String                 @id @default(cuid())
+  name                 String
+  email                String
+  phone                String?
+  company              String?
+  designation          String?
+  country              String?
+  serviceInterest      String?
+  message              String?
+  source               LeadSource             @default(CONTACT)
+  payload              String?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
   readinessSubmissions ReadinessSubmission[]
+
+  @@index([email])
+  @@index([source])
 }
 
 model ReadinessSubmission {
   id        String   @id @default(cuid())
   leadId    String
-  lead      Lead     @relation(fields: [leadId], references: [id])
-  answers   String   // JSON string
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  answers   String
   score     Int
   band      String
   createdAt DateTime @default(now())
+
+  @@index([leadId])
+}
+
+model Article {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  excerpt        String?
+  content        String
+  featuredImage  String?
+  authorId       String
+  author         User      @relation(fields: [authorId], references: [id], onDelete: Restrict)
+  categoryId     String?
+  category       Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags           String[]
+  readingTime    Int?
+  publishedAt    DateTime?
+  updatedAt      DateTime  @updatedAt
+  published      Boolean   @default(false)
+  seoTitle       String?
+  seoDescription String?
+  ogImage        String?
+  canonicalUrl   String?
+  order          Int?      @default(0)
+
+  @@index([slug])
+  @@index([authorId])
+  @@index([categoryId])
+  @@index([published])
+  @@index([publishedAt])
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  name        String
+  description String?
+  parentId    String?
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Category[] @relation("CategoryTree")
+  articles    Article[]
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+model CaseStudy {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  client         String?
+  country        String?
+  programType    String?
+  challenge      String?
+  approach       String?
+  outcome        String?
+  metrics        String?
+  coverImage     String?
+  publishedAt    DateTime?
+  updatedAt      DateTime  @updatedAt
+  featured       Boolean   @default(false)
+  seoTitle       String?
+  seoDescription String?
+
+  @@index([slug])
+  @@index([featured])
+  @@index([publishedAt])
+}
+
+model Service {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  description     String
+  longDescription String?
+  icon            String?
+  order           Int       @default(0)
+  features        String?
+  outcomes        String?
+  published       Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([order])
+}
+
+model Testimonial {
+  id          String    @id @default(cuid())
+  name        String
+  designation String?
+  institution String?
+  quote       String
+  avatar      String?
+  order       Int       @default(0)
+  published   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([order])
+}
+
+model Partner {
+  id      String      @id @default(cuid())
+  name    String
+  logo    String?
+  website String?
+  type    PartnerType @default(UNIVERSITY)
+  order   Int         @default(0)
+
+  @@index([type])
+  @@index([order])
+}
+
+model TeamMember {
+  id          String    @id @default(cuid())
+  name        String
+  designation String?
+  bio         String?
+  avatar      String?
+  linkedIn    String?
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([order])
+}
+
+model FAQ {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  category  String?
+  order     Int      @default(0)
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([order])
+}
+
+model SiteSettings {
+  id        String     @id @default(cuid())
+  key       String     @unique
+  value     String
+  type      SettingType @default(STRING)
+  updatedAt DateTime   @updatedAt
+
+  @@index([key])
+}
+
+model Subscriber {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String?
+  institution String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+  @@index([active])
+}
+
+model Consultation {
+  id                 String             @id @default(cuid())
+  name               String
+  email              String
+  phone              String?
+  institution        String?
+  institutionType    String?
+  designation        String?
+  country            String?
+  areaOfInterest     String?
+  currentChallenge   String?
+  expectedOutcome    String?
+  preferredContact   String?
+  status             ConsultationStatus @default(PENDING)
+  notes              String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model ContactSubmission {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  status    ContactStatus @default(NEW)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Country {
+  id            String                    @id @default(cuid())
+  name          String
+  code          String                    @unique
+  region        String?
+  partnerships  InternationalPartnership[]
+
+  @@index([code])
+  @@index([region])
+}
+
+model InternationalPartnership {
+  id            String            @id @default(cuid())
+  title         String
+  description   String?
+  countryId     String
+  country       Country           @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  type          PartnershipType
+  status        PartnershipStatus @default(PLANNED)
+  startDate     DateTime?
+  endDate       DateTime?
+  institutions  String?
+  order         Int               @default(0)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  @@index([countryId])
+  @@index([type])
+  @@index([status])
+  @@index([order])
+}
+
+model Page {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  content        String
+  published      Boolean   @default(false)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([published])
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  alt       String?
+  createdAt DateTime @default(now())
+
+  @@index([url])
+  @@index([mimeType])
 }
