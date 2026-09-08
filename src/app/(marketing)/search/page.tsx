@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Search, FileText, Briefcase, Building2, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Search | Nyay Saathis",
-  description: "Search articles, services, and case studies from Nyay Saathis.",
+  title: "Search | Unitide Educations",
+  description: "Search articles, services, and case studies from Unitide Educations.",
 };
 
 const MOCK_RESULTS = [

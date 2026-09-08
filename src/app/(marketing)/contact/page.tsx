@@ -271,8 +271,8 @@ export default function ContactPage() {
                       <Mail className="mt-1 h-5 w-5 shrink-0 text-accent" />
                       <div>
                         <p className="font-sans text-sm font-medium text-primary">Email</p>
-                        <a href="mailto:contact@nyaysaathis.com" className="mt-1 block font-sans text-sm text-gray-600 hover:text-accent">
-                          contact@nyaysaathis.com
+                        <a href="mailto:contact@unitide.in" className="mt-1 block font-sans text-sm text-gray-600 hover:text-accent">
+                          contact@unitide.in
                         </a>
                       </div>
                     </div>

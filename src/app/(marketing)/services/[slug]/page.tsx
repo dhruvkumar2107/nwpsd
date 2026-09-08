@@ -38,7 +38,7 @@ const serviceData: Record<string, {
     number: "02",
     title: "International Partnerships",
     description: "Building global collaborations that enable student and faculty mobility across international borders.",
-    fullDescription: "In an increasingly interconnected world, international partnerships are no longer a luxury but a necessity for institutions seeking global recognition. Nyay Saathis facilitates meaningful collaborations with universities and institutions across six continents, enabling student exchanges, faculty mobility, joint degree programs, and collaborative research. Our extensive network spans over 45 institutional partnerships across 15+ countries, providing your students and faculty with unparalleled global exposure.",
+    fullDescription: "In an increasingly interconnected world, international partnerships are no longer a luxury but a necessity for institutions seeking global recognition. Unitide Educations facilitates meaningful collaborations with universities and institutions across six continents, enabling student exchanges, faculty mobility, joint degree programs, and collaborative research. Our extensive network spans over 45 institutional partnerships across 15+ countries, providing your students and faculty with unparalleled global exposure.",
     outcomes: [
       { title: "Global Network Access", detail: "Connections to 45+ partner institutions across 15+ countries" },
       { title: "Mobility Programs", detail: "Structured student and faculty exchange frameworks with credit transfer mechanisms" },

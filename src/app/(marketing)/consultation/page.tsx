@@ -3,7 +3,7 @@ import { Shield, Award, Users, Globe, CheckCircle2 } from "lucide-react";
 import ConsultationWizard from "@/components/marketing/consultation-wizard";
 
 export const metadata: Metadata = {
-  title: "Free Consultation | Nyay Saathis",
+  title: "Free Consultation | Unitide Educations",
   description:
     "Get a personalized growth strategy for your educational institution. Take our quick assessment and schedule a free consultation with our experts.",
 };
@@ -120,7 +120,7 @@ export default function ConsultationPage() {
       {/* Trust */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20 border-t border-[#0a1628]/8">
         <p className="text-center text-sm font-semibold text-[#c8a44e] uppercase tracking-wider mb-3">
-          Why Nyay Saathis
+          Why Unitide Educations
         </p>
         <h2 className="text-center text-2xl md:text-3xl font-bold text-[#0a1628] mb-12">
           Trusted by Institutions Across India
@@ -152,7 +152,7 @@ export default function ConsultationPage() {
       <section className="bg-[#0a1628] py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="text-lg md:text-xl text-white/70 italic leading-relaxed mb-6">
-            &ldquo;Nyay Saathis helped us achieve NAAC A+ accreditation in the
+            &ldquo;Unitide Educations helped us achieve NAAC A+ accreditation in the
             first attempt. Their strategic roadmap was instrumental in aligning
             our processes with the highest standards.&rdquo;
           </p>

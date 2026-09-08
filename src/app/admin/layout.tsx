@@ -50,7 +50,7 @@ export default async function AdminLayout({
             <GraduationCap className="h-6 w-6 text-[#0a1628]" />
           </div>
           <div>
-            <h1 className="text-base font-bold tracking-wide">Nyay Saathis</h1>
+            <h1 className="text-base font-bold tracking-wide">Unitide Educations</h1>
             <p className="text-[10px] uppercase tracking-widest text-[#c8a44e]">
               Admin Panel
             </p>
@@ -90,7 +90,7 @@ export default async function AdminLayout({
                 {session.user?.name || "Admin User"}
               </p>
               <p className="truncate text-[10px] text-white/40">
-                {session.user?.email || "admin@nyaysaathis.com"}
+                {session.user?.email || "admin@unitide.in"}
               </p>
             </div>
           </div>

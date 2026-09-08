@@ -267,7 +267,7 @@ export default function CaseStudiesPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.3em] uppercase text-accent mb-4">
-              Nyay Saathis
+              Unitide Educations
             </p>
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"

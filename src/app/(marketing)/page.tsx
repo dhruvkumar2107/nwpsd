@@ -155,7 +155,7 @@ function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-6" style={{ color: COLORS.accent }}>
-            Nyay Saathis
+            Unitide Educations
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8" style={{ color: "#ffffff", fontFamily: "'Playfair Display', Georgia, serif" }}>
             Building Institutions That<br />Compete With the World.
@@ -622,7 +622,7 @@ function CaseStudiesSection() {
 function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "Nyay Saathis transformed our approach to internationalization. Their strategic clarity and deep understanding of regulatory frameworks made what seemed impossible, achievable.",
+      quote: "Unitide Educations transformed our approach to internationalization. Their strategic clarity and deep understanding of regulatory frameworks made what seemed impossible, achievable.",
       name: "Dr. Rajesh Kumar",
       designation: "Vice Chancellor",
       institution: "University of Excellence, Mumbai",

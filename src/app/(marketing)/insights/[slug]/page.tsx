@@ -481,7 +481,7 @@ function AuthorBioCard({
           <p className="text-lg font-bold text-ink">{author}</p>
           <p className="text-sm text-accent font-medium mb-3">{role}</p>
           <p className="text-sm text-ink-secondary leading-relaxed">
-            A senior advisor at Nyay Saathis with deep expertise in Indian
+            A senior advisor at Unitide Educations with deep expertise in Indian
             higher education policy and institutional transformation. Bringing
             over 15 years of experience advising universities across India and
             internationally.
@@ -873,7 +873,7 @@ export default async function InsightArticlePage({
             },
             publisher: {
               "@type": "Organization",
-              name: "Nyay Saathis",
+              name: "Unitide Educations",
               logo: {
                 "@type": "ImageObject",
                 url: "/logo.png",
@@ -883,9 +883,9 @@ export default async function InsightArticlePage({
             dateModified: article.date,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://nyaysaathis.com/insights/${slug}`,
+              "@id": `https://unitide.in/insights/${slug}`,
             },
-            keywords: [article.category, "Indian Higher Education", "Nyay Saathis"],
+            keywords: [article.category, "Indian Higher Education", "Unitide Educations"],
           }),
         }}
       />

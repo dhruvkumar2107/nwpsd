@@ -83,7 +83,7 @@ export default function InternationalCollaborationPage() {
           </h1>
           <p className="mt-6 max-w-3xl font-sans text-lg text-gray-300">
             In an interconnected world, the boundaries of education must extend beyond borders.
-            Nyay Saathis bridges institutions across continents, creating meaningful partnerships
+            Unitide Educations bridges institutions across continents, creating meaningful partnerships
             that enrich academic experiences and drive global innovation.
           </p>
           <div className="mt-10 flex items-center gap-8">

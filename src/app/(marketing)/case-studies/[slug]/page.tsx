@@ -892,11 +892,11 @@ export default async function CaseStudyDetailPage({
             description: study.tagline,
             author: {
               "@type": "Organization",
-              name: "Nyay Saathis",
+              name: "Unitide Educations",
             },
             publisher: {
               "@type": "Organization",
-              name: "Nyay Saathis",
+              name: "Unitide Educations",
               logo: {
                 "@type": "ImageObject",
                 url: "/logo.png",
@@ -905,7 +905,7 @@ export default async function CaseStudyDetailPage({
             datePublished: "2026-08-01",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://nyaysaathis.com/case-studies/${slug}`,
+              "@id": `https://unitide.in/case-studies/${slug}`,
             },
             about: {
               "@type": "Organization",
@@ -915,7 +915,7 @@ export default async function CaseStudyDetailPage({
               study.programType,
               study.country,
               "Indian Higher Education",
-              "Nyay Saathis",
+              "Unitide Educations",
             ],
           }),
         }}

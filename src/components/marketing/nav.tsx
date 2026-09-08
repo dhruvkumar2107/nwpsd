@@ -473,7 +473,7 @@ export function Nav() {
               className="font-display text-xl font-bold tracking-tight text-primary transition-colors group-hover:text-accent sm:text-[22px]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Nyay Saathis
+              Unitide Educations
             </span>
             <span className="mt-[3px] h-[1.5px] w-8 bg-accent transition-all duration-300 group-hover:w-12" />
           </Link>
@@ -714,7 +714,7 @@ export function Nav() {
                       className="font-display text-lg font-bold text-white"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
-                      Nyay Saathis
+                      Unitide Educations
                     </span>
                     <span className="mt-[2px] h-[1.5px] w-6 bg-accent" />
                   </Link>

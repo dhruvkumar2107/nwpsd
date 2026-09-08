@@ -81,7 +81,7 @@ export default function AboutPage() {
             Shaping the Future of<br />Higher Education
           </h1>
           <p className="mt-6 max-w-2xl font-sans text-lg text-gray-300">
-            For over a decade, Nyay Saathis has been the trusted partner for higher education
+            For over a decade, Unitide Educations has been the trusted partner for higher education
             institutions seeking transformative growth and sustainable excellence.
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function AboutPage() {
               </h2>
               <div className="mt-8 space-y-6 font-sans text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2012, Nyay Saathis was born from a simple yet powerful belief:
+                  Founded in 2012, Unitide Educations was born from a simple yet powerful belief:
                   every Indian institution of higher education deserves access to world-class
                   strategic consulting. Our founders, seasoned professionals from IITs, IIMs,
                   and leading global universities, saw a critical gap between the aspirations
@@ -235,7 +235,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <h2 className="font-display text-4xl font-bold md:text-5xl">Partner With Us</h2>
           <p className="mt-6 font-sans text-lg text-gray-300">
-            Join the growing community of institutions that trust Nyay Saathis
+            Join the growing community of institutions that trust Unitide Educations
             for their strategic transformation.
           </p>
           <Link

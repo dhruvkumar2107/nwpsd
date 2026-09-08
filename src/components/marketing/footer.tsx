@@ -137,7 +137,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
               <span className="font-display text-2xl font-bold text-accent">
-                Nyay Saathis
+                Unitide Educations
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
@@ -225,11 +225,11 @@ export function Footer() {
             <ul className="mt-5 space-y-4">
               <li>
                 <a
-                  href="mailto:hello@nyaysaathis.com"
+                  href="mailto:hello@unitide.in"
                   className="flex items-start gap-3 text-sm text-white/50 transition-colors hover:text-accent"
                 >
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" />
-                  hello@nyaysaathis.com
+                  hello@unitide.in
                 </a>
               </li>
               <li>
@@ -255,7 +255,7 @@ export function Footer() {
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-white/40">
-              &copy; {new Date().getFullYear()} Nyay Saathis Education Advisory. All rights reserved.
+              &copy; {new Date().getFullYear()} Unitide Educations Education Advisory. All rights reserved.
             </p>
             <div className="flex gap-5">
               <Link

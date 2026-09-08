@@ -51,19 +51,19 @@ export default function SettingsPage() {
   } = useForm<SettingsFormData>({
     resolver: zodResolver(settingsSchema),
     defaultValues: {
-      siteName: "Nyay Saathis",
+      siteName: "Unitide Educations",
       tagline:
         "Premium Higher Education Consulting & Advisory",
-      contactEmail: "info@nyaysaathis.com",
+      contactEmail: "info@unitide.in",
       phone: "+91 98765 43210",
       address:
         "42, Knowledge Park, Sector 15, Gurugram, Haryana 122001, India",
-      facebook: "https://facebook.com/nyaysaathis",
-      twitter: "https://twitter.com/nyaysaathis",
-      linkedin: "https://linkedin.com/company/nyaysaathis",
-      instagram: "https://instagram.com/nyaysaathis",
+      facebook: "https://facebook.com/unitideeducations",
+      twitter: "https://twitter.com/unitideedu",
+      linkedin: "https://linkedin.com/company/unitide-educations",
+      instagram: "https://instagram.com/unitideeducations",
       youtube: "",
-      seoTitle: "Nyay Saathis - Premium Higher Education Consulting",
+      seoTitle: "Unitide Educations - Premium Higher Education Consulting",
       seoDescription:
         "Expert guidance for admissions, scholarships, and visa processing at top universities worldwide.",
       seoKeywords:

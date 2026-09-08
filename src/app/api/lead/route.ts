@@ -40,8 +40,8 @@ export async function POST(request: Request) {
     if (process.env.RESEND_API_KEY) {
       await sendEmail({
         to: email,
-        subject: "Thanks for reaching out - Nyay Saathis",
-        html: `<p>Hi ${name},</p><p>Thanks for your interest in Nyay Saathis. Our team will get back to you within 24 hours.</p><p>Best,<br/>The Nyay Saathis Team</p>`,
+        subject: "Thanks for reaching out - Unitide Educations",
+        html: `<p>Hi ${name},</p><p>Thanks for your interest in Unitide Educations. Our team will get back to you within 24 hours.</p><p>Best,<br/>The Unitide Educations Team</p>`,
       })
     }
 
