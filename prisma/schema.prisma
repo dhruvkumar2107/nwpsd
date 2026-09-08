@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("CLIENT") // ADMIN | CLIENT
+  createdAt    DateTime  @default(now())
+  engagements  Engagement[]
+}
+
+model Engagement {
+  id         String   @id @default(cuid())
+  clientId   String
+  client     User     @relation(fields: [clientId], references: [id])
+  title      String
+  pillar     String
+  status     String   @default("DISCOVERY") // DISCOVERY | STRATEGY | MOU_DRAFTING | REGULATORY_FILING | APPROVED | LIVE
+  startDate  DateTime @default(now())
+  targetDate DateTime?
+  notes      String?
+  documents  Document[]
+  createdAt  DateTime @default(now())
+}
+
+model Document {
+  id           String   @id @default(cuid())
+  engagementId String
+  engagement   Engagement @relation(fields: [engagementId], references: [id])
+  name         String
+  url          String
+  uploadedAt   DateTime @default(now())
+  type         String
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  source    String   // READINESS_SCORE | CONTACT | NEWSLETTER
+  payload   String?  // JSON string
+  createdAt DateTime @default(now())
+  readinessSubmissions ReadinessSubmission[]
+}
+
+model ReadinessSubmission {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id])
+  answers   String   // JSON string
+  score     Int
+  band      String
+  createdAt DateTime @default(now())
+}

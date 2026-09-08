@@ -1,0 +1,173 @@
+[
+  {
+    "id": "ugc-academic-collaboration-2022",
+    "title": "UGC (Promotion and Maintenance of Standards of Academic Collaboration between Indian and Foreign Educational Institutions) Regulations, 2022",
+    "summary": "Establishes the regulatory framework for Indian institutions to enter academic collaborations with foreign universities, including twinning programs, dual degrees, and joint research initiatives.",
+    "effectiveDate": "2022-03-16",
+    "authority": "UGC",
+    "tags": ["internationalization", "twinning", "MoU", "foreign collaboration", "credit transfer"],
+    "whyItMatters": "Primary regulatory framework governing all institutional international partnerships in India."
+  },
+  {
+    "id": "ugc-fhei-regulations-2023",
+    "title": "UGC (Establishment and Operation of Foreign Higher Educational Institutions in India) Regulations, 2023",
+    "summary": "Creates the framework for foreign universities to establish campuses in India and for collaborative degree programs with Indian institutions.",
+    "effectiveDate": "2023-01-19",
+    "authority": "UGC",
+    "tags": ["FHEI", "foreign campus", "collaborative degree", "NEP 2020"],
+    "whyItMatters": "Opens India's higher education sector to direct foreign university presence for the first time."
+  },
+  {
+    "id": "abc-framework-2021",
+    "title": "Academic Bank of Credits (ABC) Framework",
+    "summary": "Digital infrastructure enabling students to accumulate, transfer, and redeem academic credits across recognized institutions under NEP 2020.",
+    "effectiveDate": "2021-08-02",
+    "authority": "UGC",
+    "tags": ["credits", "mobility", "NEP 2020", "credit transfer", "flexibility"],
+    "whyItMatters": "Foundational infrastructure for academic mobility, twinning programs, and multi-institutional enrollment."
+  },
+  {
+    "id": "ugc-odl-regulations-2020",
+    "title": "UGC (Open and Distance Learning) Regulations, 2020",
+    "summary": "Regulates the establishment and operation of open and distance learning programs by recognized institutions, including online degree and diploma programs.",
+    "effectiveDate": "2020-09-04",
+    "authority": "UGC",
+    "tags": ["ODL", "online education", "distance learning", "digital education"],
+    "whyItMatters": "Governs the rapidly growing online and distance education sector in India."
+  },
+  {
+    "id": "ugc-recognition-equivalence-2024",
+    "title": "UGC (Recognition and Grant of Equivalence of Qualifications) Regulations, 2024",
+    "summary": "Provides the framework for recognizing foreign qualifications and granting equivalence with Indian academic qualifications.",
+    "effectiveDate": "2024-04-15",
+    "authority": "UGC",
+    "tags": ["equivalence", "foreign qualification", "recognition", "international students"],
+    "whyItMatters": "Streamlines the process for foreign credential recognition, critical for international student admissions."
+  },
+  {
+    "id": "aicte-approval-handbook-2024-25",
+    "title": "AICTE Approval Process Handbook 2024-25",
+    "summary": "Comprehensive guide for technical institutions seeking AICTE approval for new programs, intake changes, and infrastructure requirements.",
+    "effectiveDate": "2024-06-01",
+    "authority": "AICTE",
+    "tags": ["approval", "technical education", "infrastructure", "program establishment"],
+    "whyItMatters": "Annual compliance requirement for all AICTE-approved technical institutions."
+  },
+  {
+    "id": "ugc-nep-curriculum-framework-2023",
+    "title": "UGC Curriculum and Credit Framework for NEP 2020 Implementation",
+    "summary": "Defines the curriculum structure, credit requirements, and learning outcomes for undergraduate programs aligned with National Education Policy 2020.",
+    "effectiveDate": "2023-03-01",
+    "authority": "UGC",
+    "tags": ["NEP 2020", "curriculum", "credit framework", "undergraduate", "learning outcomes"],
+    "whyItMatters": "Mandates curriculum redesign for all undergraduate programs to align with NEP 2020 objectives."
+  },
+  {
+    "id": "ugc-anti-ragging-regulations-2023",
+    "title": "UGC (Promotion of Equity in Higher Education) Regulations, 2023",
+    "summary": "Establishes comprehensive anti-ragging measures and student safety requirements for all recognized institutions.",
+    "effectiveDate": "2023-06-15",
+    "authority": "UGC",
+    "tags": ["student safety", "anti-ragging", "equity", "inclusion"],
+    "whyItMatters": "Mandatory compliance requirement with strict penalties for non-adherence."
+  },
+  {
+    "id": "ugc-grading-framework-2022",
+    "title": "UGC (Implementation of Grading System) Guidelines, 2022",
+    "summary": "Standardizes the grading framework for higher education institutions, replacing traditional marks-based assessment with outcome-based grading.",
+    "effectiveDate": "2022-07-01",
+    "authority": "UGC",
+    "tags": ["grading", "assessment", "grading system", "academic standards"],
+    "whyItMatters": "Requires all institutions to adopt standardized grading systems for academic quality assurance."
+  },
+  {
+    "id": "aicte-ODL-ODP-guidelines-2024",
+    "title": "AICTE Guidelines for ODL and Online Programs, 2024",
+    "summary": "Updated guidelines for technical institutions offering open distance learning and online programs, including infrastructure and faculty requirements.",
+    "effectiveDate": "2024-03-15",
+    "authority": "AICTE",
+    "tags": ["ODL", "online programs", "technical education", "digital education"],
+    "whyItMatters": "Governs technical institutions' entry into online and distance education markets."
+  },
+  {
+    "id": "ugc-faculty-qualification-2023",
+    "title": "UGC (Minimum Qualifications for Appointment of Teachers and Other Academic Staff) Regulations, 2023",
+    "summary": "Defines minimum qualification requirements for faculty appointments, including Ph.D. requirements and experience criteria.",
+    "effectiveDate": "2023-02-01",
+    "authority": "UGC",
+    "tags": ["faculty", "qualifications", "appointments", "PhD requirement"],
+    "whyItMatters": "Determines faculty eligibility standards across all higher education institutions."
+  },
+  {
+    "id": "ugc-admission-regulations-2023",
+    "title": "UGC (Admissions to Higher Educational Institutions) Regulations, 2023",
+    "summary": "Establishes fair and transparent admission procedures for higher education institutions, including reservation policies and eligibility criteria.",
+    "effectiveDate": "2023-05-01",
+    "authority": "UGC",
+    "tags": ["admissions", "eligibility", "reservation", "transparent process"],
+    "whyItMatters": "Sets admission standards that all recognized institutions must follow."
+  },
+  {
+    "id": "ugc-academic-bank-credits-rules-2024",
+    "title": "UGC (Amendment to Academic Bank of Credits) Rules, 2024",
+    "summary": "Updates to ABC framework including expanded credit storage capacity, validity periods, and international credit recognition provisions.",
+    "effectiveDate": "2024-08-01",
+    "authority": "UGC",
+    "tags": ["ABC", "credits", "amendment", "international recognition", "NEP 2020"],
+    "whyItMatters": "Enhances ABC capabilities for international credit transfer and multi-institutional enrollment."
+  },
+  {
+    "id": "mhrd-nep-implementation-2020",
+    "title": "National Education Policy 2020 Implementation Framework",
+    "summary": "The overarching policy framework for transforming Indian education, including targets for gross enrollment, research output, and internationalization by 2035.",
+    "effectiveDate": "2020-07-29",
+    "authority": "MHRD",
+    "tags": ["NEP 2020", "policy framework", "transformation", "2035 targets"],
+    "whyItMatters": "Defines the strategic direction for all subsequent UGC and AICTE regulations."
+  },
+  {
+    "id": "ugc-accreditation-quality-2023",
+    "title": "UGC (Assessment and Accreditation) Guidelines, 2023",
+    "summary": "Provides guidelines for institutions seeking NAAC accreditation, including documentation requirements and quality benchmarks.",
+    "effectiveDate": "2023-09-01",
+    "authority": "UGC",
+    "tags": ["accreditation", "NAAC", "quality assurance", "assessment"],
+    "whyItMatters": "Links UGC recognition to accreditation status for all higher education institutions."
+  },
+  {
+    "id": "aicte-faculty-development-2024",
+    "title": "AICTE Faculty Development Programme Guidelines, 2024",
+    "summary": "Mandates continuous professional development requirements for technical faculty, including international exposure and industry interaction.",
+    "effectiveDate": "2024-01-15",
+    "authority": "AICTE",
+    "tags": ["faculty development", "continuous education", "international exposure", "industry interaction"],
+    "whyItMatters": "Requires technical institutions to invest in faculty professional development."
+  },
+  {
+    "id": "ugc-student-grievance-2023",
+    "title": "UGC (Redressal of Grievances of Students) Regulations, 2023",
+    "summary": "Establishes mandatory student grievance redressal mechanisms for all recognized institutions, including international student provisions.",
+    "effectiveDate": "2023-07-01",
+    "authority": "UGC",
+    "tags": ["student grievance", "redressal", "student rights", "compliance"],
+    "whyItMatters": "Mandatory institutional requirement with regulatory penalties for non-compliance."
+  },
+  {
+    "id": "state-maharashtra-twinning-2022",
+    "title": "Maharashtra State Higher Education Council Twinning Program Guidelines, 2022",
+    "summary": "State-level guidelines for Maharashtra institutions entering twinning programs with foreign universities, including approval procedures and credit requirements.",
+    "effectiveDate": "2022-11-01",
+    "authority": "State",
+    "tags": ["Maharashtra", "state regulations", "twinning", "approval process"],
+    "whyItMatters": "Additional state-level compliance requirement for Maharashtra institutions pursuing twinning programs."
+  },
+  {
+    "id": "ugc-digital-education-2023",
+    "title": "UGC (Digital Education) Guidelines, 2023",
+    "summary": "Framework for digital content development, online assessment, and technology-enhanced learning in higher education institutions.",
+    "effectiveDate": "2023-04-01",
+    "authority": "UGC",
+    "tags": ["digital education", "online learning", "technology", "content development"],
+    "whyItMatters": "Sets standards for digital education infrastructure and content quality."
+  }
+]
