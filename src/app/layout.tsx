@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://nwpsd.vercel.app"
   ),
   title: {
     default: "Nyay Saathis — Higher Education Advisory",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://nwpsd.vercel.app",
     siteName: "Nyay Saathis — Higher Education Advisory",
     title: "Nyay Saathis — Higher Education Advisory",
     description:
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
     creator: "@nyaysaathis",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
   robots: {
@@ -85,8 +85,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Nyay Saathis Education Advisory",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nyaysaathis.com"}/logo.png`,
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nwpsd.vercel.app",
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nwpsd.vercel.app"}/logo.png`,
   description:
     "Premium higher-education consulting advisory firm delivering strategic guidance for university admissions, scholarship optimization, and academic career planning.",
   foundingDate: "2024",

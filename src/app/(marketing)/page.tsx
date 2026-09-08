@@ -788,106 +788,9 @@ function InsightsSection() {
   );
 }
 
-function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 py-4 px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 flex items-center justify-center" style={{ backgroundColor: COLORS.accent }}>
-            <span className="text-xs font-bold" style={{ color: COLORS.primary }}>NS</span>
-          </div>
-          <span className="text-sm font-bold tracking-wider uppercase hidden sm:block" style={{ color: "#ffffff" }}>
-            Nyay Saathis
-          </span>
-        </Link>
-        <div className="hidden md:flex items-center gap-8">
-          {["Services", "International", "Case Studies", "Insights", "About"].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-xs tracking-wider uppercase transition-colors hover:text-[#c8a44e]"
-              style={{ color: "rgba(255,255,255,0.7)" }}
-            >
-              {item}
-            </Link>
-          ))}
-        </div>
-        <Link
-          href="/contact"
-          className="px-5 py-2.5 text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-white/10"
-          style={{ border: "1px solid rgba(200,164,78,0.4)", color: COLORS.accent }}
-        >
-          Contact
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="py-16" style={{ backgroundColor: "#060d18" }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 flex items-center justify-center" style={{ backgroundColor: COLORS.accent }}>
-                <span className="text-xs font-bold" style={{ color: COLORS.primary }}>NS</span>
-              </div>
-              <span className="text-sm font-bold tracking-wider uppercase" style={{ color: "#ffffff" }}>
-                Nyay Saathis
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
-              Strategic advisory and transformation consulting for higher education institutions aspiring to global excellence.
-            </p>
-          </div>
-          {[
-            { title: "Services", links: ["Strategic Planning", "International Partnerships", "NEP 2020", "Accreditation"] },
-            { title: "Company", links: ["About Us", "Case Studies", "Insights", "Contact"] },
-            { title: "Connect", links: ["LinkedIn", "Twitter", "Newsletter", "Contact Us"] },
-          ].map((col, i) => (
-            <div key={i}>
-              <h4 className="text-xs font-bold tracking-wider uppercase mb-4" style={{ color: COLORS.accent }}>
-                {col.title}
-              </h4>
-              <ul className="space-y-2">
-                {col.links.map((link, j) => (
-                  <li key={j}>
-                    <Link
-                      href="#"
-                      className="text-xs transition-colors hover:text-[#c8a44e]"
-                      style={{ color: "rgba(255,255,255,0.4)" }}
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-            © 2026 Nyay Saathis. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service"].map((item, i) => (
-              <Link key={i} href="#" className="text-xs transition-colors hover:text-[#c8a44e]" style={{ color: "rgba(255,255,255,0.3)" }}>
-                {item}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 export default function HomePage() {
   return (
-    <main>
-      <Navbar />
+    <>
       <HeroSection />
       <TrustBar />
       <ServicesExplorer />
@@ -898,7 +801,6 @@ export default function HomePage() {
       <TestimonialsSection />
       <CTASection />
       <InsightsSection />
-      <Footer />
-    </main>
+    </>
   );
 }
