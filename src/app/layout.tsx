@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import ScrollToTop from "@/components/marketing/scroll-to-top";
+import { CursorSpotlight } from "@/components/ui/cursor-spotlight";
+import { SmoothScrollProvider } from "@/components/ui/smooth-scroll-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -120,9 +122,12 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
-        <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.03]" />
-        {children}
-        <ScrollToTop />
+        <CursorSpotlight />
+        <SmoothScrollProvider>
+          <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.03]" />
+          {children}
+          <ScrollToTop />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

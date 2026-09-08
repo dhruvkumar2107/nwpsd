@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, ArrowRight, ArrowUp } from "lucide-react";
+import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
 
 const services = [
   { label: "Strategic Planning", href: "/what-we-do/strategic-planning" },
@@ -14,8 +16,8 @@ const services = [
 ];
 
 const insights = [
-  { label: "Articles", href: "/insights/articles" },
-  { label: "Case Studies", href: "/insights/case-studies" },
+  { label: "Articles", href: "/insights" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Reports", href: "/insights/reports" },
   { label: "Resources", href: "/insights/resources" },
 ];
@@ -66,6 +68,22 @@ const socials = [
   { Icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
 ];
 
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+  },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  },
+};
+
 export function Footer() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -87,199 +105,258 @@ export function Footer() {
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="relative border-t border-accent/40 bg-primary">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+    <footer className="relative overflow-hidden">
+      {/* Animated gradient border */}
+      <div className="absolute inset-x-0 top-0 h-px">
+        <div className="h-full bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div style={{ backgroundColor: COLORS.primary }}>
         {/* Newsletter Section */}
-        <div className="border-b border-white/10 py-12 sm:py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
-              Stay Ahead of Higher Education
-            </h2>
-            <p className="mt-3 text-sm text-white/60 sm:text-base">
-              Get strategic insights, policy updates, and expert analysis delivered to your inbox.
-            </p>
-
-            {submitted ? (
-              <p className="mt-6 text-sm font-medium text-accent">
-                Thank you for subscribing. Check your inbox for a confirmation.
+        <div className="border-b border-white/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <motion.div
+              className="mx-auto max-w-2xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl" style={{ fontFamily: "var(--font-display)" }}>
+                Stay Ahead of Higher Education
+              </h2>
+              <p className="mt-3 text-sm text-white/50 sm:text-base">
+                Get strategic insights, policy updates, and expert analysis delivered to your inbox.
               </p>
-            ) : (
-              <form
-                onSubmit={handleSubscribe}
-                className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center"
-              >
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="h-12 w-full rounded-lg border border-white/15 bg-white/5 px-5 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent sm:max-w-sm"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 text-sm font-semibold text-primary transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="mt-8 flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-accent/10 border border-accent/20"
                 >
-                  Subscribe
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-            )}
+                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-sm font-medium text-accent">
+                    Thank you for subscribing. Check your inbox for a confirmation.
+                  </p>
+                </motion.div>
+              ) : (
+                <form
+                  onSubmit={handleSubscribe}
+                  className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center"
+                >
+                  <div className="relative flex-1 sm:max-w-sm">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      className="h-12 w-full rounded-xl border border-white/10 bg-white/5 px-5 text-sm text-white placeholder-white/30 outline-none transition-all focus:border-accent focus:ring-1 focus:ring-accent focus:bg-white/8"
+                    />
+                  </div>
+                  <MagneticWrapper strength={0.1}>
+                    <button
+                      type="submit"
+                      className="h-12 inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 text-sm font-semibold text-primary transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/20"
+                    >
+                      Subscribe
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </MagneticWrapper>
+                </form>
+              )}
+            </motion.div>
           </div>
         </div>
 
         {/* Main Footer Columns */}
-        <div className="grid gap-10 py-12 sm:py-16 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block">
-              <span className="font-display text-2xl font-bold text-accent">
-                Unitide Educations
-              </span>
-            </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
-              Empowering institutions with strategic advisory, regulatory expertise, and the vision to lead in global higher education.
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="grid gap-10 py-16 sm:py-20 md:grid-cols-2 lg:grid-cols-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {/* Brand Column */}
+            <motion.div className="lg:col-span-1" variants={staggerItem}>
+              <Link href="/" className="inline-block group">
+                <span className="font-display text-2xl font-bold text-accent" style={{ fontFamily: "var(--font-display)" }}>
+                  Unitide
+                </span>
+                <span className="h-[1.5px] block w-8 bg-accent/40 mt-1 transition-all duration-300 group-hover:w-12 group-hover:bg-accent" />
+              </Link>
+              <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/40">
+                Empowering institutions with strategic advisory, regulatory expertise, and the vision to lead in global higher education.
+              </p>
 
-            <div className="mt-6 flex items-center gap-3">
-              {socials.map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/50 transition-colors hover:border-accent/60 hover:text-accent"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
-          </div>
+              <div className="mt-6 flex items-center gap-3">
+                {socials.map(({ Icon, href, label }) => (
+                  <MagneticWrapper key={label} strength={0.2}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/8 text-white/40 transition-all duration-300 hover:border-accent/40 hover:text-accent hover:bg-accent/5"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  </MagneticWrapper>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/80">
-              Services
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
+            {/* Services */}
+            <motion.div variants={staggerItem}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Services
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {services.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/40 transition-colors duration-200 hover:text-accent animated-underline"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Insights */}
+            <motion.div variants={staggerItem}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Insights
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {insights.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/40 transition-colors duration-200 hover:text-accent animated-underline"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Company */}
+            <motion.div variants={staggerItem}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Company
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {company.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/40 transition-colors duration-200 hover:text-accent animated-underline"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Contact */}
+            <motion.div variants={staggerItem}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                Contact
+              </h3>
+              <ul className="mt-5 space-y-4">
+                <li>
+                  <a
+                    href="mailto:hello@unitide.in"
+                    className="flex items-start gap-3 text-sm text-white/40 transition-colors hover:text-accent group"
                   >
-                    {link.label}
-                  </Link>
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent/50 group-hover:text-accent transition-colors" />
+                    hello@unitide.in
+                  </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Insights */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/80">
-              Insights
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {insights.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
+                <li>
+                  <a
+                    href="tel:+919876543210"
+                    className="flex items-start gap-3 text-sm text-white/40 transition-colors hover:text-accent group"
                   >
-                    {link.label}
-                  </Link>
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent/50 group-hover:text-accent transition-colors" />
+                    +91 98765 43210
+                  </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/80">
-              Company
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </Link>
+                <li>
+                  <div className="flex items-start gap-3 text-sm text-white/40">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent/50" />
+                    <span>New Delhi, India</span>
+                  </div>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/80">
-              Contact
-            </h3>
-            <ul className="mt-5 space-y-4">
-              <li>
-                <a
-                  href="mailto:hello@unitide.in"
-                  className="flex items-start gap-3 text-sm text-white/50 transition-colors hover:text-accent"
-                >
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" />
-                  hello@unitide.in
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+919876543210"
-                  className="flex items-start gap-3 text-sm text-white/50 transition-colors hover:text-accent"
-                >
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" />
-                  +91 98765 43210
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-3 text-sm text-white/50">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" />
-                  <span>New Delhi, India</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+              </ul>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-white/40">
-              &copy; {new Date().getFullYear()} Unitide Educations Education Advisory. All rights reserved.
-            </p>
-            <div className="flex gap-5">
-              <Link
-                href="/privacy-policy"
-                className="text-xs text-white/40 transition-colors hover:text-white"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-xs text-white/40 transition-colors hover:text-white"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookie-policy"
-                className="text-xs text-white/40 transition-colors hover:text-white"
-              >
-                Cookie Policy
-              </Link>
+        <div className="border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+              <p className="text-xs text-white/30">
+                &copy; {new Date().getFullYear()} Unitide Educations Education Advisory. All rights reserved.
+              </p>
+              <div className="flex items-center gap-5">
+                <Link
+                  href="/privacy-policy"
+                  className="text-xs text-white/30 transition-colors hover:text-white/60"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms-of-service"
+                  className="text-xs text-white/30 transition-colors hover:text-white/60"
+                >
+                  Terms of Service
+                </Link>
+                <Link
+                  href="/cookie-policy"
+                  className="text-xs text-white/30 transition-colors hover:text-white/60"
+                >
+                  Cookie Policy
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Back to top */}
+      <motion.button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-xl glass-dark flex items-center justify-center text-white/60 transition-colors hover:text-accent hover:border-accent/30 shadow-lg"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
+        aria-label="Back to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </motion.button>
     </footer>
   );
 }
+
+const COLORS = {
+  primary: "#0a1628",
+  accent: "#c8a44e",
+};
